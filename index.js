@@ -99,6 +99,10 @@ const accessionSelected = ()=> {
 const searchAccession = ()=> {
   const curr = search_accession.value;
   console.log(curr)
+  if(!curr){
+    alert('Please enter an accession and try again...')
+    return;
+  }
   loader.style.visibility = 'visible';
   select_chromosome.disabled = true;
   next_button1.disabled = true;
@@ -134,6 +138,9 @@ const getFeatureViewer = (url_data)=> {
   
   ff.addNxFeature(["propeptide","mature-protein", "variant","disulfide-bond"], styles)}).then(()=> {
     loader.style.visibility = 'hidden';
+  })
+  .catch(err=> {
+    alert('Something went wrong! Please try again')
   })
 }
 
