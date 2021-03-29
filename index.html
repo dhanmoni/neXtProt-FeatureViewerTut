@@ -44,6 +44,11 @@
       button:disabled {
         background-color: gray;
       }
+      #help {
+        visibility: hidden;
+        font-size: small;
+        padding-top: 4px;
+      }
     </style>
   </head>
   <body>
@@ -74,6 +79,18 @@
     <br />
     <br />
     <button type="button" id="reset" onclick="reset()">Reset</button>
+    <button type="button" id="help_button" onclick="help()">Help</button>
+    <p id="help">
+      Select a chromosome from the first dropdown menu. You cannot select
+      accession before selecting a chromosome. Click 'NEXT' after selecting a
+      chromosome, this downloads the accessions for that particluar chromosome.
+      Then select an accession and click 'NEXT' again to see the result. Once
+      you select the chromosome and click 'NEXT', you cannot change it again. If
+      you want to change the chromosome after clicking the 'NEXT' button, just
+      click 'RESET' button. This clears the previous selections. The greyed out
+      buttons are disabled. You can directly search for accessions if you want
+      in the search bar.
+    </p>
     <div id="fv2"></div>
     <div id="loader">Please wait while we load your result...</div>
   </body>

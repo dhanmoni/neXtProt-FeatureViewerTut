@@ -24,6 +24,7 @@ const select_accession = document.getElementById('accession-select');
 const search_accession = document.getElementById('search_accession');
 const search_button = document.getElementById('search_button');
 const details = document.getElementById('details');
+const help_section = document.getElementById('help');
 
 const chromosome_url = 'https://api.nextprot.org/chromosomes.json';
 
@@ -70,7 +71,6 @@ const chromosomeSelected = ()=> {
       return resp.json()
     })
     .then((data) => {
-      console.log(data);
       return data.map((accession, index) => {
         select_accession.options[select_accession.options.length] = new Option(accession, accession);
       })
@@ -80,7 +80,7 @@ const chromosomeSelected = ()=> {
       loader.style.visibility = 'hidden';
     })
     .catch((error)=> {
-      console.log(error);
+      alert('Something went wrong! Please try again')
     });
 }
 
@@ -98,7 +98,7 @@ const accessionSelected = ()=> {
 
 const searchAccession = ()=> {
   const curr = search_accession.value;
-  console.log(curr)
+ 
   if(!curr){
     alert('Please enter an accession and try again...')
     return;
@@ -144,3 +144,10 @@ const getFeatureViewer = (url_data)=> {
   })
 }
 
+const help = ()=> {
+  if(help_section.style.visibility == 'hidden'){
+    help_section.style.visibility ='visible';
+  } else {
+    help_section.style.visibility ='hidden';
+  }
+}
