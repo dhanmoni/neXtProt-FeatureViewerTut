@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feature Viewer with neXtProt</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/calipho-sib/feature-viewer@v1.0.6/dist/feature-viewer.min.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/gh/calipho-sib/feature-viewer@v1.0.6/dist/feature-viewer.bundle.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/gh/calipho-sib/feature-viewer@v1.0.6/dist/feature-viewer.nextprot.js"
+      defer
+    ></script>
+    <script src="./index.js" defer></script>
+    <style>
+      body {
+        padding: 10px;
+      }
+      #loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 3px 2px 26px 0px rgba(0, 0, 0, 0.75);
+        padding: 50px;
+      }
+      button {
+        background-color: rgba(39, 248, 158, 0.8);
+        border: none;
+        color: white;
+        border-radius: 4px;
+        padding: 4px;
+      }
+      button:disabled {
+        background-color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>neXtProt API with Feature Viewer</h2>
+    <br />
+    <h6>
+      Select chromosome and accession from the dropdown to visualise data:
+    </h6>
+    <label for="chromosome-select">Select chromosome:</label>
+
+    <select name="chromosome-select" id="chromosome-select"></select>
+    <button type="button" id="next1" onclick="chromosomeSelected()">
+      Next
+    </button>
+    <br />
+
+    <label for="accession-select">Select Accession:</label>
+
+    <select name="accession-select" id="accession-select"></select>
+    <button type="button" id="next2" onclick="accessionSelected()">Next</button>
+    <br />
+    <h5>----OR----</h5>
+    <h6>Enter neXtProt accession here:</h6>
+    <input type="text" id="search_accession" placeholder="e.g NX_P01308" />
+    <button type="button" id="search_button" onclick="searchAccession()">
+      Search
+    </button>
+    <br />
+    <br />
+    <button type="button" id="reset" onclick="reset()">Reset</button>
+    <div id="fv2"></div>
+    <div id="loader">Please wait while we load your result...</div>
+  </body>
+</html>
